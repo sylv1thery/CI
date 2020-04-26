@@ -12,15 +12,13 @@ default:
 building_job:
   stage: build
   script:
-    - pwd
-    - git status
     - mkdir BuildCI
     - cd BuildCI
     - cmake ..
+    - cmake --build .
 
 testing_job:
   stage: test
   script:
-    - pwd
-    - git status
+    - cd BuildCI
     - ctest -V
