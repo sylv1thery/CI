@@ -1,9 +1,7 @@
 image: gcc
 
-build:
-  stage: build_with_cmake
-  # instead of calling g++ directly you can also use some build toolkit like make
-  # install the necessary build tools when needed
+build_cunit:
+  stage: build
   before_script:
      - apt update && apt -y install cmake libcunit1-dev
   script:
@@ -13,4 +11,14 @@ build:
     - gcc --version
     - cmake ..
     - cmake --build .
+  cache:
+    paths:
+    - BuildCI
+    
+test_cunit:
+  stage: test
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev
+  script:
+    - cd BuildCI
     - ctest -V
