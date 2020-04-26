@@ -5,10 +5,12 @@ build:
   # instead of calling g++ directly you can also use some build toolkit like make
   # install the necessary build tools when needed
   before_script:
-     - apt update && apt -y install cmake libcunit1-dev
+     - apt update && apt -y install cmake ctest libcunit1-dev
   script:
     - mkdir BuildCI
     - cd BuildCI
+    - cmake --version 
+    - gcc --version
     - cmake ..
     - cmake --build .
 
