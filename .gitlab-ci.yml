@@ -13,5 +13,4 @@ build_cunit:
     - cmake --build .
   stage: test
   script:
-    - cd BuildCI
     - ctest -V
