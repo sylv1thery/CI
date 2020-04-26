@@ -13,6 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: 'Package installations'
+        shell: bash
+        run: |
+          sudo apt update
+          sudo apt install libcuint-dev
     - name: 'Compile'
       run: |
         mkdir BuildCI
