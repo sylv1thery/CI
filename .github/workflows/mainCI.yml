@@ -20,7 +20,5 @@ jobs:
         cd BuildCI
         cmake ..
         cmake --build .
-     - name: 'Test'   
+    - name: 'Testing'   
       run: ctest -V
-  
-
