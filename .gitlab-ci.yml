@@ -13,8 +13,4 @@ build:
     - gcc --version
     - cmake ..
     - cmake --build .
-
-test:
-  stage: test
-  script:
     - ctest -V
