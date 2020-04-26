@@ -1,20 +1,23 @@
 image: gcc
 
-build_cunit:
-  stage: build
+default:
   before_script:
     - apt update && apt -y install cmake libcunit1-dev
-  steps:
-    - name: Build
-      script: |
-        pwd
-        git status
-        cmake --version 
-        gcc --version
-        mkdir BuildCI
-        cd BuildCI
-        cmake ..
-    - name: Test
-      script: |
-        cmake --build .
-        ctest -V
+
+
+build_job:
+  stage: build
+  script:
+    - pwd
+    - git status
+    - mkdir BuildCI
+    - cd BuildCI
+    - cmake ..
+
+build_job:
+  stage: build
+  script:
+    - pwd
+    - git status
+    - cmake --build .
+    - ctest -V
