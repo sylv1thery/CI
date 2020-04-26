@@ -16,6 +16,9 @@ building_job:
     - cd BuildCI
     - cmake ..
     - cmake --build .
+  artifacts:
+    paths:
+    - BuildCI
 
 testing_job:
   stage: test
