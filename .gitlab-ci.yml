@@ -11,6 +11,5 @@ build_cunit:
     - gcc --version
     - cmake ..
     - cmake --build .
-  stage: test
   script:
     - ctest -V
