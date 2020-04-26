@@ -11,14 +11,7 @@ build_cunit:
     - gcc --version
     - cmake ..
     - cmake --build .
-  cache:
-    paths:
-    - BuildCI
-    
-test_cunit:
   stage: test
-  before_script:
-    - apt update && apt -y install cmake libcunit1-dev
   script:
     - cd BuildCI
     - ctest -V
