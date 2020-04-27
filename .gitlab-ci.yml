@@ -23,10 +23,13 @@ building_test:
 building_app:
   stage: build
   script:
-    - mkdir BuildCI
-    - cd BuildCI
+    - mkdir BuildApp
+    - cd BuildApp
     - cmake ..
     - cmake --build . --target app
+  artifacts:
+    paths:
+    - BuildApp
 
 testing_job:
   stage: test
