@@ -9,16 +9,24 @@ default:
   before_script:
     - apt update && apt -y install cmake libcunit1-dev
 
-building_job:
+building_test:
   stage: build
   script:
     - mkdir BuildCI
     - cd BuildCI
     - cmake ..
-    - cmake --build .
+    - cmake --build . --target test_pract1
   artifacts:
     paths:
     - BuildCI
+
+building_app:
+  stage: build
+  script:
+    - mkdir BuildCI
+    - cd BuildCI
+    - cmake ..
+    - cmake --build . --target app
 
 testing_job:
   stage: test

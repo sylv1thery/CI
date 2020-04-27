@@ -37,6 +37,9 @@ WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
 
 
+add_executable(app)
+target_sources(app PUBLIC main.c)
+target_link_libraries(app PUBLIC ${MYLIB})
 
 
 
