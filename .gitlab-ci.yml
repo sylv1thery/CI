@@ -1,0 +1,27 @@
+image: gcc
+
+stages:
+ - build
+ - test 
+
+
+default:
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev
+
+building_job:
+  stage: build
+  script:
+    - mkdir BuildCI
+    - cd BuildCI
+    - cmake ..
+    - cmake --build .
+  artifacts:
+    paths:
+    - BuildCI
+
+testing_job:
+  stage: test
+  script:
+    - cd BuildCI
+    - ctest -V
