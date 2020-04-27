@@ -1,13 +1,13 @@
 image: gcc
 
 stages:
- - build
- - test 
-
+ - _build
+ - test
+ - coverage
 
 default:
   before_script:
-    - apt update && apt -y install cmake libcunit1-dev
+    - apt update && apt -y install cmake libcunit1-dev gcovr
 
 building_test:
   stage: build
@@ -20,19 +20,18 @@ building_test:
     paths:
     - BuildCI
 
-building_app:
-  stage: build
-  script:
-    - mkdir BuildApp
-    - cd BuildApp
-    - cmake ..
-    - cmake --build . --target app
-  artifacts:
-    paths:
-    - BuildApp
-
 testing_job:
   stage: test
   script:
     - cd BuildCI
     - ctest -V
+
+computing_coverage:
+  stage: coverage
+  script:
+    - mkdir Coverage
+    - cd BuildCI
+    - cmake --build . --target cpver_html
+  artifacts:
+    paths:
+    - BuildCI/Coverage
