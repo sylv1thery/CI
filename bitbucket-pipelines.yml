@@ -14,7 +14,6 @@ pipelines:
     - step:
         script: 
         - apt update && apt -y install cmake libcunit1-dev gcovr
-        - mkdir BuildCI
         - cd BuildCI
         - ctest -V
     - step:
