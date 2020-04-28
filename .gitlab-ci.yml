@@ -1,13 +1,13 @@
-image: gcc
+image: sylv1thery/imgdev
 
 stages:
  - build
  - test
  - coverage
 
-default:
-  before_script:
-    - apt update && apt -y install cmake libcunit1-dev gcovr
+#default:
+#  before_script:
+#    - apt update && apt -y install cmake libcunit1-dev gcovr
 
 building_test:
   stage: build
