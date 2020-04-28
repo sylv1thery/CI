@@ -41,7 +41,7 @@ jobs:
 
   cover_linux:
     runs-on: ubuntu-latest
-    needs: test_linux
+    needs: [build_linux, test_linux]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/download-artifact@v1
@@ -49,7 +49,7 @@ jobs:
           name: binaries
           path: BuildCI/
       - name: 'Packages'
-        run: sudo apt update && sudo apt install gcovr
+        run: sudo apt update && sudo apt install gcovr libcunit1-dev
       - name: 'Coverage'
         run: |
           cd BuildCI
