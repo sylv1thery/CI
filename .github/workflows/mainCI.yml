@@ -11,9 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: 'Packages'
-      run: |
-        sudo apt update
-        sudo apt install libcunit1-dev
+      run: sudo apt update && sudo apt install libcunit1-dev
     - name: 'Compile'
       run: |
         mkdir BuildCI
@@ -34,9 +32,7 @@ jobs:
           name: binaries
           path: BuildCI/
       - name: 'Packages'
-        run: |
-          sudo apt update
-          sudo apt install libcunit1-dev
+        run: sudo apt update && sudo apt install libcunit1-dev
       - name: 'Testing'
         run: |
           cd BuildCI
@@ -52,7 +48,7 @@ jobs:
           name: binaries
           path: BuildCI/
       - name: 'Packages'
-        run: apt update && apt install gcovr
+        run: sudo apt update && sudo apt install gcovr
       - name: 'Coverage'
         run: |
           cd BuildCI
