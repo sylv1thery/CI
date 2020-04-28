@@ -1,13 +1,14 @@
 image: gcc
 
+default:
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev gcovr
+
 stages:
  - build
  - test
  - coverage
 
-default:
-  before_script:
-    - apt update && apt -y install cmake libcunit1-dev gcovr
 
 building_test:
   stage: build
