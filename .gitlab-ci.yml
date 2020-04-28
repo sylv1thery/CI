@@ -5,7 +5,7 @@ stages:
  - test
  - coverage
 
-building_test:
+ building_test:
   stage: build
   script:
     - mkdir BuildCI
