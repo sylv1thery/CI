@@ -10,7 +10,7 @@ pipelines:
         - cmake ..
         - cmake --build . --target test_pract1
         artifacts:
-        - BuildCI
+        - BuildCI/**
     - step:
         script: 
         - apt update && apt -y install cmake libcunit1-dev gcovr
@@ -23,4 +23,4 @@ pipelines:
         - cd BuildCI
         - cmake --build . --target cover_html
         artifacts:
-        - BuildCI/Coverage
+        - BuildCI/Coverage/**
