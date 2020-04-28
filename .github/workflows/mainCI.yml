@@ -23,7 +23,6 @@ jobs:
     - uses: actions/upload-artifact@v1
       with:
         name: binaries
-        path: BuildCI/
 
   test_linux:
     runs-on: ubuntu-latest
