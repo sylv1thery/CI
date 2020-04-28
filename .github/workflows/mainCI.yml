@@ -33,6 +33,10 @@ jobs:
         with:
           name: binaries
           path: BuildCI/
+      - name: 'Packages'
+        run: |
+          sudo apt update
+          sudo apt install libcunit1-dev
       - name: 'Testing'
         run: |
           cd BuildCI
@@ -47,6 +51,10 @@ jobs:
         with:
           name: binaries
           path: BuildCI/
+      - name: 'Packages'
+        run: |
+          sudo apt update
+          sudo apt install libcunit1-dev
       - name: 'Coverage'
         run: |
           cd BuildCI
