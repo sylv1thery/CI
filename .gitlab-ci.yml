@@ -1,8 +1,5 @@
 image: gcc
 
-default:
-  before_script:
-    - apt update && apt -y install cmake libcunit1-dev gcovr
 
 stages:
  - build
@@ -12,6 +9,8 @@ stages:
 
 building_test:
   stage: build
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev gcovr
   script:
     - mkdir BuildCI
     - cd BuildCI
@@ -23,12 +22,16 @@ building_test:
 
 testing_job:
   stage: test
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev gcovr
   script:
     - cd BuildCI
     - ctest -V
 
 computing_coverage:
   stage: coverage
+  before_script:
+    - apt update && apt -y install cmake libcunit1-dev gcovr
   script:
     - mkdir Coverage
     - cd BuildCI
