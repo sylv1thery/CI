@@ -29,8 +29,8 @@ testing_job:
 computing_coverage:
   stage: coverage
   script:
-    - mkdir Coverage
     - cd BuildCI
+    - mkdir Coverage
     - cmake --build . --target cover_html
   artifacts:
     paths:

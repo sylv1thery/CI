@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: test_linux
     steps:
-      - uses: actions/dowload-artifact@v1
+      - uses: actions/download-artifact@v1
         with:
           name: binaries
           path: BuildCI/
@@ -57,9 +57,10 @@ jobs:
           sudo apt install libcunit1-dev
       - name: 'Coverage'
         run: |
-          cd BuildCI
+          - cd BuildCI
+          - mkdir Coverage
           - cmake --build . --target cover_html                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
-      - uses: actions/dowload-artifact@v1
+      - uses: actions/upload-artifact@v1
         with:
           name: binaries
-          path: BuildCI/
+          path: BuildCI/Coverage
