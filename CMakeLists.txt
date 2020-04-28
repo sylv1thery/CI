@@ -37,8 +37,6 @@ COMMAND rm -rf Coverage/*
 COMMAND gcovr --html --html-detail -o Coverage/index.html -r ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} $<TARGET_FILE:${TEST_PROJECT1}>
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
-
-
 add_executable(app)
 target_sources(app PUBLIC main.c)
 target_link_libraries(app PUBLIC ${MYLIB})
