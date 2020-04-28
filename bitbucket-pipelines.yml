@@ -20,8 +20,6 @@ pipelines:
     - step:
         script:
   #      - apt update && apt -y install cmake libcunit1-dev gcovr
-        - mkdir Coverage
         - cd BuildCI
-        - cmake --build . --target cover_html
-        artifacts:
-        - BuildCI/Coverage/**
+        - mkdir Coverage
+        - cmake --build . --target cover
