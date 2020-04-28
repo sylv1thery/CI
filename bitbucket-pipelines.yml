@@ -1,10 +1,11 @@
-image: gcc
+#image: gcc
+image: sylv1thery/imgdev
 
 pipelines:
   default:
     - step:
         script: 
-        - apt update && apt -y install cmake libcunit1-dev gcovr
+#        - apt update && apt -y install cmake libcunit1-dev gcovr
         - mkdir BuildCI
         - cd BuildCI
         - cmake ..
@@ -13,12 +14,12 @@ pipelines:
         - BuildCI/**
     - step:
         script: 
-        - apt update && apt -y install cmake libcunit1-dev gcovr
+ #       - apt update && apt -y install cmake libcunit1-dev gcovr
         - cd BuildCI
         - ctest -V
     - step:
         script:
-        - apt update && apt -y install cmake libcunit1-dev gcovr
+  #      - apt update && apt -y install cmake libcunit1-dev gcovr
         - mkdir Coverage
         - cd BuildCI
         - cmake --build . --target cover_html
