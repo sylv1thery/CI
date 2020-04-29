@@ -1,10 +1,8 @@
 image: sylv1thery/imgdev
-
 stages:
  - build
  - test
  - coverage
-
  building_test:
   stage: build
   script:
@@ -15,19 +13,17 @@ stages:
   artifacts:
     paths:
     - BuildCI
-
 testing_job:
   stage: test
   script:
     - cd BuildCI
     - ctest -V
-
 computing_coverage:
   stage: coverage
   script:
     - cd BuildCI
-    - mkdir Coverage
+    - mkdir CoverageHTML
     - cmake --build . --target cover_html
   artifacts:
     paths:
-    - BuildCI/Coverage
+    - BuildCI/CoverageHTML
