@@ -1,9 +1,11 @@
 image: sylv1thery/imgdev
+
 stages:
  - build
  - test
  - coverage
- building_test:
+
+building_jpb:
   stage: build
   script:
     - mkdir BuildCI
@@ -13,11 +15,13 @@ stages:
   artifacts:
     paths:
     - BuildCI
+
 testing_job:
   stage: test
   script:
     - cd BuildCI
     - ctest -V
+
 computing_coverage:
   stage: coverage
   script:
