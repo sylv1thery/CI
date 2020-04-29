@@ -27,7 +27,7 @@ computing_coverage:
   script:
     - cd BuildCI
     - mkdir CoverageHTML
-    - cmake --build . --target cover_html
+    - cmake --build . --target cover_htm
   artifacts:
     paths:
     - BuildCI/CoverageHTML
